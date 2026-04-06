@@ -53,3 +53,9 @@ A lightweight, RESTful public bulletin board built with **Ruby on Rails 7** and 
    ```
 
 Visit the app at http://localhost:3000.
+
+
+## 🤖 AI Usage Log
+* **Gemini:** Used to generate the initial Tailwind layout for the notice cards.
+* **GitHub Copilot:** Assisted in writing the `ordered` scope and model validation tests.
+* **Gemini:** Used to debug the category filter logic in the controller to ensure it chained correctly with the scope.
