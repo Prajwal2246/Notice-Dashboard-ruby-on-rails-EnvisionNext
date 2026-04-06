@@ -7,7 +7,7 @@ notices = [
   { title: "JS Workshop", body: "Join us this Friday for a deep dive into React and Node.js hooks.", author_name: "Prajwal", category: "Event", pinned: false },
   { title: "Junior Rails Developer", body: "We are looking for an intern to join our Pune office. Apply within!", author_name: "HR Team", category: "Job", pinned: false },
   { title: "Community Meetup", body: "Monthly meetup at the local cafe. Free coffee for all attendees!", author_name: "Sarah", category: "Event", pinned: false },
-  { title: "Lost MacBook Air", body: "Found a MacBook with a Kakashi sticker. Contact me to claim.", author_name: "Security", category: "Other", pinned: false }
+  { title: "Lost MacBook air", body: "Found a MacBook with a Kakashi sticker. Contact me to claim.", author_name: "Security", category: "Other", pinned: false }
 ]
 
 notices.each do |n|

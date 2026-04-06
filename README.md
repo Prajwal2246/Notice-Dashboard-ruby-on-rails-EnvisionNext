@@ -25,7 +25,7 @@ A lightweight, RESTful public bulletin board built with **Ruby on Rails 7** and 
 1. **Clone the repository**
 
    ```bash
-   git clone [your-repository-url]
+   git clone https://github.com/Prajwal2246/Notice-Dashboard-ruby-on-rails-EnvisionNext.git
    cd public_notice_board
 
    ```
