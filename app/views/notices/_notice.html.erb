@@ -1,0 +1,28 @@
+<div class="bg-white border rounded-lg shadow-sm p-6 flex flex-col justify-between <%= 'border-yellow-400 ring-2 ring-yellow-200' if notice.pinned %>">
+  <div>
+    <div class="flex justify-between items-start mb-2">
+      <span class="px-2 py-1 text-xs font-semibold rounded bg-gray-100 text-gray-600 uppercase">
+        <%= notice.category %>
+      </span>
+      <% if notice.pinned %>
+        <span class="text-yellow-600 text-sm font-bold">📌 Pinned</span>
+      <% end %>
+    </div>
+    
+    <h2 class="text-xl font-bold text-gray-900 mb-2"><%= notice.title %></h2>
+    <p class="text-gray-600 mb-4 line-clamp-3"><%= notice.body %></p>
+  </div>
+
+  <div class="mt-4 pt-4 border-t border-gray-100">
+    <div class="flex justify-between items-center text-sm text-gray-500">
+      <div>
+        <p class="font-medium text-gray-800"><%= notice.author_name %></p>
+        <p><%= notice.created_at.strftime("%B %d, %Y") %></p>
+      </div>
+      <div class="flex gap-2">
+        <%= link_to 'View', notice, class: "text-blue-600 hover:underline" %>
+        <%= button_to 'Delete', notice, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 hover:underline" %>
+      </div>
+    </div>
+  </div>
+</div>

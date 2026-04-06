@@ -1,0 +1,26 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-800">Public Notice Board</h1>
+    <%= link_to 'Post New Notice', new_notice_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form_with url: notices_path, method: :get, class: "flex items-center gap-2" do |f| %>
+      <%= f.label :category, "Filter by:", class: "font-medium text-gray-700" %>
+      <%= f.select :category, Notice::CATEGORIES, { include_blank: 'All Categories', selected: params[:category] }, 
+          onchange: 'this.form.submit();', 
+          class: "border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" %>
+    <% end %>
+  </div>
+
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <% if @notices.any? %>
+    <%= render @notices %>
+  <% else %>
+    <div class="col-span-full text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
+      <p class="text-gray-500 italic">No notices found in this category. Be the first to post!</p>
+    </div>
+  <% end %>
+</div>
+</div>

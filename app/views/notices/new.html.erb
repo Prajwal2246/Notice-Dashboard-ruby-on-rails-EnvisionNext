@@ -1,0 +1,51 @@
+<div class="container mx-auto px-4 py-8 max-w-lg">
+  <div class="mb-6">
+    <%= link_to '← Back to Notice Board', notices_path, class: "text-blue-600 hover:underline" %>
+    <h1 class="text-3xl font-bold text-gray-900 mt-2">Post a New Notice</h1>
+  </div>
+
+  <div class="bg-white shadow-md border rounded-lg p-8">
+    <%= form_with(model: @notice, local: true, class: "space-y-6") do |f| %>
+      
+      <% if @notice.errors.any? %>
+        <div class="bg-red-50 p-4 rounded-md mb-6">
+          <h2 class="text-red-800 font-bold mb-1"><%= pluralize(@notice.errors.count, "error") %> stopped this notice from saving:</h2>
+          <ul class="list-disc list-inside text-red-700 text-sm">
+            <% @notice.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= f.label :title, "Title (Max 100 characters)", class: "block text-sm font-medium text-gray-700 mb-1" %>
+        <%= f.text_field :title, placeholder: "e.g., Room for Rent", class: "w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border" %>
+      </div>
+
+      <div>
+        <%= f.label :author_name, "Your Name", class: "block text-sm font-medium text-gray-700 mb-1" %>
+        <%= f.text_field :author_name, placeholder: "e.g., Prajwal", class: "w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border" %>
+      </div>
+
+      <div>
+        <%= f.label :category, "Category", class: "block text-sm font-medium text-gray-700 mb-1" %>
+        <%= f.select :category, Notice::CATEGORIES, {}, class: "w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border bg-white" %>
+      </div>
+
+      <div>
+        <%= f.label :body, "Message (Max 500 characters)", class: "block text-sm font-medium text-gray-700 mb-1" %>
+        <%= f.text_area :body, rows: 5, placeholder: "What's on your mind?", class: "w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border" %>
+      </div>
+
+      <div class="flex items-center">
+        <%= f.check_box :pinned, class: "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" %>
+        <%= f.label :pinned, "Pin this notice to the top", class: "ml-2 block text-sm text-gray-900 font-medium" %>
+      </div>
+
+      <div class="pt-4">
+        <%= f.submit "Create Notice", class: "w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200 cursor-pointer" %>
+      </div>
+    <% end %>
+  </div>
+</div>
